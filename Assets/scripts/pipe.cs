@@ -7,6 +7,7 @@ public class pipe : MonoBehaviour
 
     public float speed = 10.0f;
     private Rigidbody2D rb;
+    private CapsuleCollider2D capsuleCollider;
 
     // Start is called before the first frame update
     void Start()

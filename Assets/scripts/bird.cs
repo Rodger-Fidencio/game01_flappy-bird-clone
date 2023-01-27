@@ -5,6 +5,8 @@ using UnityEngine;
 public class bird : MonoBehaviour
 {
 
+    private GameLogic manager;
+
     Rigidbody2D rb;
     [SerializeField] int jumpPower;
 
@@ -12,6 +14,7 @@ public class bird : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        manager = GameObject.Find("Game Manager").GetComponent<GameLogic>();
     
     }
 
@@ -25,9 +28,8 @@ public class bird : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-       Destroy(this.gameObject);
-
+        manager.gameOver();
     }
 }
